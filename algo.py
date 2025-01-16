@@ -58,7 +58,7 @@ def performance_score(df):
     return df
 
 def give_rank(df):
-    df = df.iloc[:-2]
+    df = df.drop(df.index[-2:])
     df['rank'] = df['performance_score'].rank(ascending=False, method='dense').astype(int)
     return df
 
