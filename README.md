@@ -72,7 +72,6 @@ Model,Price,Storage,Battery,Performance,TOPSIS Score,Rank
 
 The program will show appropriate error messages for:
 - Invalid number of weights or impacts
-- Weights not summing to 1
 - Invalid CSV format or data types
 - Missing values in the dataset
 - Invalid file paths
