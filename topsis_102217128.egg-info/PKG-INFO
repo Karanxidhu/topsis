@@ -1,3 +1,14 @@
+Metadata-Version: 2.1
+Name: topsis-102217128
+Version: 0.0.2
+Author: Karanjot Singh
+Author-email: ksingh11_be22@thapar.edu
+License: MIT
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pandas
+Requires-Dist: numpy
+
 # TOPSIS Analysis Package
 
 A Python package for performing TOPSIS (Technique for Order of Preference by Similarity to Ideal Solution) analysis on numerical datasets. This package provides both a command-line interface and a importable module for performing TOPSIS analysis on datasets containing numerical data (int32, int64, float32, float64).
@@ -110,11 +121,7 @@ Model,Price,Storage,Battery,Performance,TOPSIS Score,Rank
 
 The package provides comprehensive error handling for:
 - Invalid number of weights or impacts
-<<<<<<< HEAD
 - Invalid data types or format
-=======
-- Invalid CSV format or data types
->>>>>>> 3f7d24c7bda2d09bb6ca48b2ee55e07e1f621ee3
 - Missing values in the dataset
 - Invalid file paths (CLI only)
 - Non-numeric data in columns

@@ -1,5 +1,6 @@
-import argparse
+from algo import run
 import sys
+import pandas as pd
 
 def valid_operators(value):
     operators = value.split(',')  # Split by comma
@@ -16,39 +17,19 @@ def valid_numbers(value):
     except ValueError:
         raise argparse.ArgumentTypeError("Invalid numbers. Provide a comma-separated list of numbers.")
 
-# parser = argparse.ArgumentParser(description="Process numbers and operators")
-
-# Add arguments
-
-# parser.add_argument(
-#     '--data',
-#     type=str,
-#     required=True,
-#     help="Enter the CSV file"
-# )
-
-# parser.add_argument(
-#     '--weights',
-#     type=valid_numbers,
-#     required=True,
-#     help="Comma-separated list of numbers (e.g., 1,2,3.5)"
-# )
-
-# parser.add_argument(
-#     '--impact',
-#     type=str,
-#     required=True,
-#     help="Comma-separated list of operators (e.g., +,-)"
-# )
-
-# args = parser.parse_args()
 args = sys.argv
-
 data = args[1]
 weights = valid_numbers(args[2])
 impact = valid_operators(args[3])
 output = args[4]
 
-print(f"Data: {data}")
-print(f"Weights: {weights}")
-print(f"Impact: {impact}")
+df = pd.read_csv('data.csv')
+print("got the CSV file")
+print("columns found✨: ")
+print(df.columns.tolist())
+if len(weights) == len(impact) and len(weights) == len(df.columns):
+    pass
+else:
+    raise ValueError("Number of weights, operators, and columns do not match. ", len(weights), len(impact), len(df.columns))
+
+run(df, weights, impact, output)

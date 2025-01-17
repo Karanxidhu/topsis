@@ -1,7 +1,7 @@
-from csv_expl import df
-from main import weights, impact, output
 import numpy as np
-def check_valid_csv(data):
+import sys
+
+def check_valid_csv(df):
     valid_numeric_types = ['int32', 'int64', 'float32', 'float64']
 
     for column in df.columns:
@@ -16,13 +16,13 @@ def normaise_df(df):
         df[column] = df[column] / np.sqrt(np.sum(df[column] ** 2))
     return df
 
-def weight_adjusted_normalise_df(df):
+def weight_adjusted_normalise_df(df,weights):
     cols = df.columns
     for i in range(len(df.columns)):
         df[cols[i]] = df[cols[i]] * weights[i]
     return df
 
-def add_ideal_vals(df):
+def add_ideal_vals(df,impact):
     ideal_best = []
     ideal_worst = []
     for i in range(len(df.columns)):
@@ -65,12 +65,14 @@ def give_rank(df):
 def save_to_csv(df, filename):
     df.to_csv(filename, index=False)
 
-check_valid_csv(df)
-normalised_df = normaise_df(df)
-weighted_normalised_df =weight_adjusted_normalise_df(normalised_df)
-idiolilsed_w_n_df = add_ideal_vals(weighted_normalised_df)
-euclidian_distance_df = find_euclidean_distances(idiolilsed_w_n_df)
-performance_score_df = performance_score(euclidian_distance_df)
-ranked_df = give_rank(performance_score_df)
-save_to_csv(ranked_df, output)
-print(ranked_df)
+
+def run(df, weights, impact, output):
+    check_valid_csv(df)
+    normalised_df = normaise_df(df)
+    weighted_normalised_df =weight_adjusted_normalise_df(normalised_df,weights)
+    idiolilsed_w_n_df = add_ideal_vals(weighted_normalised_df, impact)
+    euclidian_distance_df = find_euclidean_distances(idiolilsed_w_n_df)
+    performance_score_df = performance_score(euclidian_distance_df)
+    ranked_df = give_rank(performance_score_df)
+    save_to_csv(ranked_df, output)
+    print(ranked_df)
