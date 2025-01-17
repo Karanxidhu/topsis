@@ -110,11 +110,7 @@ Model,Price,Storage,Battery,Performance,TOPSIS Score,Rank
 
 The package provides comprehensive error handling for:
 - Invalid number of weights or impacts
-<<<<<<< HEAD
-- Invalid data types or format
-=======
-- Invalid CSV format or data types
->>>>>>> 3f7d24c7bda2d09bb6ca48b2ee55e07e1f621ee3
+- Invalid data types
 - Missing values in the dataset
 - Invalid file paths (CLI only)
 - Non-numeric data in columns
