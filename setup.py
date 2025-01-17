@@ -4,9 +4,9 @@ with open('README.md',"r") as f:
     description = f.read()
 
 setup(
-    name='topsis-102217128',
+    name='topsis-Karan-102217128',
     packages=find_packages(),
-    version='0.0.2',
+    version='0.0.4',
     author_email='ksingh11_be22@thapar.edu',
     author='Karanjot Singh',
     license='MIT',

@@ -84,7 +84,7 @@ result.to_csv('output.csv', index=False)
 #### Command Line
 
 ```bash
-python -m topsis_analysis data.csv 0.25,0.25,0.25,0.25 -,+,+,+ output.csv
+python -m topsis-102217128 data.csv 0.25,0.25,0.25,0.25 -,+,+,+ output.csv
 ```
 
 ### Input CSV Format
